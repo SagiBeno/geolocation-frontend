@@ -24,7 +24,7 @@ function App() {
     <>
       <h1>Geolocation</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={(e) => handleLatLongClick()}>
           Store geolocation
         </button>
         <p>
