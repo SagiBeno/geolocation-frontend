@@ -19,13 +19,13 @@ function App() {
       }, console.warn)
     }
   }
-  
+
   return (
     <>
       <h1>Geolocation</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
-          Strore geolocation
+          Store geolocation
         </button>
         <p>
           <ol>
