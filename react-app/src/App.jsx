@@ -7,7 +7,7 @@ function App() {
   const [testMessage, setTestMessage] = useState( {message: ''} );
 
   useEffect(() => {
-    (async function() {
+    (async () => {
       try {
         const gotTestMessageJson = await fetch('https://geolocation-backend-five.vercel.app/hello');
         console.log('gotTestMessageJson:', gotTestMessageJson);
@@ -24,16 +24,17 @@ function App() {
   const handleLatLongClick = async (e) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async function success(position) {
-        console.log(position)
         const { latitude, longitude } = position.coords
         setLatitude(latitude);
         setLongitude(longitude);
-        /*
-            const gotDataJson = await fetch('https://xxx.vercel.app/geolocation&#39;, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({latitude, longitude})
-            }) */
+
+        const gotDataJson = await fetch('https://geolocation-backend-five.vercel.app/geolocation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({latitude, longitude})
+        });
+
+        console.log(gotDataJson)
 
       }, console.warn)
     }
