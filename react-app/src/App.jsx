@@ -51,6 +51,14 @@ function App() {
           <li>Longitude: {longitude}</li>
         </ol>
       </div>
+
+      {
+        testMessage.message &&
+          <div className='card'>
+            <p>Test message: {testMessage?.message}</p>
+          </div>
+      }
+      
     </>
   )
 }
