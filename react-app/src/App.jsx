@@ -4,12 +4,18 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
 
   const handleLatLongClick = async (e) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async function success(position) {
-        const { latitude, longitude } = position.coords /*
+        console.log(position)
+        const { latitude, longitude } = position.coords
+        setLatitude(latitude);
+        setLongitude(longitude);
+        /*
             const gotDataJson = await fetch('https://xxx.vercel.app/geolocation&#39;, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -29,8 +35,8 @@ function App() {
         </button>
         <p>
           <ol>
-            <li>Latitude: {'TODO'}</li>
-            <li>Longitude: {'TODO'}</li>
+            <li>Latitude: {latitude}</li>
+            <li>Longitude: {longitude}</li>
           </ol>
         </p>
       </div>
