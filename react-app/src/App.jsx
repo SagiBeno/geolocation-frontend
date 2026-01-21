@@ -33,12 +33,10 @@ function App() {
         <button onClick={(e) => handleLatLongClick()}>
           Store geolocation
         </button>
-        <p>
-          <ol>
-            <li>Latitude: {latitude}</li>
-            <li>Longitude: {longitude}</li>
-          </ol>
-        </p>
+        <ol>
+          <li>Latitude: {latitude}</li>
+          <li>Longitude: {longitude}</li>
+        </ol>
       </div>
     </>
   )
