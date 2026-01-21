@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
-  const [testMessage, setTestMessage] = useState('');
+  const [testMessage, setTestMessage] = useState( {} );
 
   useEffect(() => {
     (async function() {
