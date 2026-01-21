@@ -1,12 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0);
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
+  const [testMessage, setTestMessage] = useState('');
+
+  useEffect(() => {
+    (async function() {
+      try {
+        const gotTestMessageJson = await fetch('https://geolocation-backend-five.vercel.app/hello');
+        console.log('gotTestMessageJson:', gotTestMessageJson);
+        const gotTestMessage = await gotTestMessageJson.json();
+        console.log('gotTestMessage:', gotTestMessage);
+        setTestMessage(gotTestMessage);
+      } catch (error) {
+        console.warn(error);
+      }
+      
+    }) ();
+  }, []);
 
   const handleLatLongClick = async (e) => {
     if (navigator.geolocation) {
