@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
-  const [testMessage, setTestMessage] = useState( {} );
+  const [testMessage, setTestMessage] = useState( {message: ''} );
 
   useEffect(() => {
     (async function() {
@@ -53,9 +53,9 @@ function App() {
       </div>
 
       {
-        testMessage.message &&
+        testMessage.message.trim().length > 0 &&
           <div className='card'>
-            <p>Test message: {testMessage?.message}</p>
+            <p>Test message: {testMessage.message}</p>
           </div>
       }
       
